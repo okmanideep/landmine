@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,25 +25,28 @@ fun Home(
         ) {
             LazyColumn(
                 modifier = Modifier.fillMaxWidth()
+                    .background(Color(0xFF222222))
                     .weight(1f),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(100, key = {it}) {
                     ButtonWithoutElevation(
                         onClick = onDetailClick,
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color(0xFF555555)
+                        ),
                         modifier = Modifier
-                            .fillMaxWidth()
                             .padding(12.dp)
+                            .fillMaxWidth()
                             .height(144.dp)
                             .clip(shape = RoundedCornerShape(4.dp))
-                            .background(Color(0xFF373C4D))
                     ){}
                 }
             }
 
             ButtonWithoutElevation(
                 modifier = Modifier
-                    .padding(vertical = 12.dp)
+                    .padding(12.dp)
                     .fillMaxWidth()
                     .height(48.dp),
                 onClick = onDetailClick
