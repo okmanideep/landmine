@@ -10,7 +10,6 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
 import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
-import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import java.util.*
@@ -61,12 +60,10 @@ class NavEntry internal constructor(
         )
     }
 
+    override val savedStateRegistry = savedStateRegistryController.savedStateRegistry
+
     override fun getLifecycle(): Lifecycle {
         return lifecycleRegistry
-    }
-
-    override fun getSavedStateRegistry(): SavedStateRegistry {
-        return savedStateRegistryController.savedStateRegistry
     }
 
     internal fun setLifecycleState(state: Lifecycle.State) {
