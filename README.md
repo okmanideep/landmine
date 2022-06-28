@@ -1,3 +1,5 @@
+**UPDATE**: Crash not occurring with compose `1.2.0-rc02`, AGP `7.2.1` and kotlin `1.6.21`
+
 Reproduce InvalidStartIndex crash with TabNavHost
 
 The stack trace
